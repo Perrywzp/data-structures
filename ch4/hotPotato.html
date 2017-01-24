@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环队列</title>
+    <link rel="stylesheet" href="../base.css">
+</head>
+<body>
+<section>
+    <div class="description">
+        <p>击鼓传花：在这个游戏中，孩子们围成一个圈，把花尽快地传给旁边的人。某一时刻传花停止，这个时候花在谁的手里，谁就退出圆圈结束游戏。重复这个过程，直到只剩一个孩子（胜者）。</p>
+    </div>
+</section>
+<section>
+    <span class="tip">请打开浏览器调试工具查看打印结果!</span>
+</section>
+</body>
+<script src="queue.js"></script>
+<script>
+    function hotPotato (nameList, num) {
+        var queue = new Queue();
+
+        for (var i = 0; i < nameList.length; i++) {
+            queue.enqueue(nameList[i]);
+        }
+
+        var eliminated = '';
+        while (queue.size() > 1) {
+            for (var i = 0; i < num ; i++) {
+                queue.enqueue(queue.dequeue());
+            }
+            eliminated = queue.dequeue();
+            console.log(eliminated + '在击鼓传花游戏中被淘汰。');
+        }
+
+        return queue.dequeue();
+    }
+
+    var names = ['John', 'Jack', 'Camila', 'Ingrid', 'Carl'];
+    var winner = hotPotato(names, 7);
+    console.log('胜利者： ' + winner);
+</script>
+</html>

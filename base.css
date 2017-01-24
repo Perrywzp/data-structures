@@ -1,0 +1,34 @@
+section {
+    width: 500px;
+    margin: 20px auto;
+}
+
+section a {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    color: green;
+}
+section a:hover {
+    color: peru;
+}
+section a:visited,section a:active {
+    color: red;
+}
+section span {
+    color: sandybrown;
+}
+ul {
+    list-style: decimal;
+}
+.description {
+    font-size: 16px;
+    line-height: 28px;
+    color: #fff;
+    background: darkgreen;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+.description p {
+    text-indent: 2em;
+}

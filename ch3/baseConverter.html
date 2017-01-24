@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进制数转换</title>
+    <link rel="stylesheet" href="../base.css">
+</head>
+<body>
+    <section>
+        <div class="description">
+            <p>栈是一种遵从后进先出（LIFO）原则的有序集合。新添加的或删除的元素都保存在栈的末尾，称作栈顶，另一端就叫栈底。在栈里，新元素都靠近栈顶，旧元素都接近栈底。</p>
+        </div>
+    </section>
+    <section>
+        <span class="tip">请打开浏览器调试工具查看打印结果!</span>
+    </section>
+</body>
+<script src="stack.js"></script>
+<script>
+    function baseConverter(decNumber, base) {
+        var remStack = new Stack(),
+            rem,
+            baseString = '',
+            digits = '0123456789ABCDEF';
+
+        while (decNumber > 0) {
+            rem = Math.floor(decNumber % base);
+            remStack.push(rem);
+            decNumber = Math.floor(decNumber / base);
+        }
+
+        while (!remStack.isEmpty()) {
+            baseString += digits[remStack.pop()];
+        }
+
+        return baseString;
+    }
+    console.log(baseConverter(100345, 2));
+    console.log(baseConverter(100345, 8));
+    console.log(baseConverter(100345, 16));
+</script>
+</html>
